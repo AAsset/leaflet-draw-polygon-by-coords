@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script type="text/javascript" src="./leaflet-draw-by-coordinates.js"></script>
+    <link rel="stylesheet" href="./leaflet-draw-by-coordinates.css">
+    <style>
+        html, body, #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script type="text/javascript">
+        var mapCenter = new L.LatLng(50.68, -120.34);
+        var baseLayer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        });
+        var _map = new L.Map("map", {
+            center: mapCenter,
+            zoom: 14,
+            layers: [baseLayer]
+        });
+        L.control.toolPanel({data: null}).addTo(_map);
+    </script>
+</body>
+</html>
